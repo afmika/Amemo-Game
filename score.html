@@ -1,0 +1,67 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			AMemo
+		</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			<img src="amemo_logo.png"  width="200" />
+			<div id="menu_screen">
+					<p>Scores</p>
+					<center>
+						<div id="table_scores">
+						</div>
+					</center>
+					<a class="menubtn" href="index.html">Retour</a>		<br/>						
+					<a class="menubtn" href="score.html" id="reinit">Réinitialiser</a>								
+			</div>
+			<script type="text/javascript">
+			$(document).ready(function() {
+				function scoreToTable() {
+					if(!localStorage.getItem("AMEMO_SCORE")) {
+						return null;
+					} else {
+						var elem = localStorage.getItem("AMEMO_SCORE");
+						var $elem = elem.split("|");
+						var newnew = [];
+						for(var i=0; i < $elem.length; i++) {
+							newnew.push($elem[i].split("+"));
+						}
+						return newnew;
+					}		
+				}
+				function reinitScore() {
+					if(localStorage.getItem("AMEMO_SCORE") != null) {
+						localStorage.clear();
+					}
+				}
+				var scores = scoreToTable();
+				if(scores == null) {
+					$("#table_scores").text("Aucun score");
+				} else {
+					var html = "<table style='color:black'>";
+					for(var i=0; i < scores.length; i++) {
+						html += "<tr>";
+							html += "<td>"+scores[i][0]+"</td>";
+							html += "<td>"+scores[i][1]+"</td>";
+							html += "<td>Points</td>";
+						html += "</tr>";
+					}
+					html += "</table>";
+					$("#table_scores").html(html);
+				}
+				$("#reinit").click(function(){
+					reinitScore();
+				});
+			});
+			</script>
+		</div>
+		<script type="text/javascript" src="display.js"></script>
+	</body>
+</html>

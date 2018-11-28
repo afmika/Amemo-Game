@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			AMemo
+		</title>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		<script type="text/javascript" src="lib/game.js"></script>
+	</head>
+	<body>
+		<div id="page">
+			<div id="game_stats">
+				<table>
+					<tr>
+						<td id="score"></td>
+						<td id="level"></td>
+						<td id="taux"></td>
+						<td id="lifepoint"></td>
+					</tr>
+				</table>
+			</div>
+			<br>
+			<div id="number" height="300"></div>
+			<div id="menu_screen">
+				<div id="choicegroup">
+					<b><p id="commentaire" style="font-size: 43px;"></p></b>
+					<span class="menubtn" id="c1"></span>
+					&nbsp
+					<span class="menubtn" id="c2"></span>
+					&nbsp
+					<span class="menubtn" id="c3"></span>					
+				</div>
+			</div>
+			<div class="retour">
+				<a href="index.html" onclick="return(confirm('Etes-vous sûr?'))"><b>Retour</b></a>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="display.js"></script>
+	</body>
+</html>
